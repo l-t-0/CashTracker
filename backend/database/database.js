@@ -8,6 +8,7 @@ const database = async () => {
     } catch (error) {
         console.log('Database connection error!');
         console.error('Database connection error:', error.message);
+        console.log("MONGO_URI:", process.env.MONGO_URI);
     }
 }
 
