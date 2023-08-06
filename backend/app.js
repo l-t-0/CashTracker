@@ -2,7 +2,7 @@
 
 const express = require('express')
 const cors = require('cors');
-import path from 'path';
+const path = require('path');
 const {database} = require('./database/database');
 const {readdirSync} = require('fs')
 const app = express()
