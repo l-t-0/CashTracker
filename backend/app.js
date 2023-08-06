@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(cors())
 
 const routesPath = path.join(__dirname, 'routes');
-fs.readdirSync(routesPath).map((route) => {
+readdirSync(routesPath).map((route) => {
     app.use('/api/v1', require(path.join(routesPath, route)));
 });
 
