@@ -14,7 +14,10 @@ require('dotenv').config()
 app.use(express.json())
 app.use(cors())
 
-readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
+const routesPath = path.join(__dirname, 'routes');
+fs.readdirSync(routesPath).map((route) => {
+    app.use('/api/v1', require(path.join(routesPath, route)));
+});
 
 const dname = path.resolve();
 
