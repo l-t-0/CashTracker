@@ -16,10 +16,12 @@ app.use(cors())
 
 readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '/frontend/build')));
+const dname = path.resolve();
+
+app.use(express.static(path.join(dname, '/frontend/build')));
+
 app.get('*', (req,res) =>
-    res.sendFile(path.join(__dirname, '/frontend/build/index.html')));
+    res.sendFile(path.join(dname, '/frontend/build/index.html')));
 
 
 const PORT = process.env.PORT
