@@ -1,8 +1,8 @@
-import { useGlobalContext } from '../../context/globalContext';
-import styled from 'styled-components';
-import { dateFormat } from '../../utils/dateFormat';
-import React from 'react';
-import { Line } from 'react-chartjs-2';
+import { useGlobalContext } from "../../context/globalContext";
+import styled from "styled-components";
+import { dateFormat } from "../../utils/dateFormat";
+import React from "react";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJs,
   CategoryScale,
@@ -13,7 +13,7 @@ import {
   Tooltip,
   Legend,
   ArcElement,
-} from 'chart.js';
+} from "chart.js";
 
 ChartJs.register(
   CategoryScale,
@@ -29,20 +29,34 @@ ChartJs.register(
 function Chart() {
   const { income, expense } = useGlobalContext();
 
-  const allDates = [...new Set([...income.map((i) => i.date), ...expense.map((e) => e.date)])];
+  const allDates = [
+    ...new Set([...income.map((i) => i.date), ...expense.map((e) => e.date)]),
+  ];
   allDates.sort((a, b) => new Date(a) - new Date(b));
 
   const balanceData = allDates.map((date) => {
-    const totalIncome = income.filter((i) => i.date === date).reduce((sum, i) => sum + i.amount, 0);
-    const totalExpense = expense.filter((e) => e.date === date).reduce((sum, e) => sum + e.amount, 0);
-    return { date, totalIncome, totalExpense, balance: totalIncome - totalExpense };
+    const totalIncome = income
+      .filter((i) => i.date === date)
+      .reduce((sum, i) => sum + i.amount, 0);
+    const totalExpense = expense
+      .filter((e) => e.date === date)
+      .reduce((sum, e) => sum + e.amount, 0);
+    return {
+      date,
+      totalIncome,
+      totalExpense,
+      balance: totalIncome - totalExpense,
+    };
   });
 
   const cumulativeBalanceData = balanceData.reduce((acc, curr, index) => {
     if (index === 0) {
       return [curr];
     } else {
-      return [...acc, { ...curr, balance: acc[index - 1].balance + curr.balance }];
+      return [
+        ...acc,
+        { ...curr, balance: acc[index - 1].balance + curr.balance },
+      ];
     }
   }, []);
 
@@ -50,15 +64,15 @@ function Chart() {
     labels: allDates.map((date) => dateFormat(date)),
     datasets: [
       {
-        label: 'Total Balance',
+        label: "Total Balance",
         data: cumulativeBalanceData.map((data) => data.balance),
-        borderColor: 'black',
-        borderWidth: 0.5, 
-        backgroundColor: 'rgba(0, 0, 255, 0.2)',
+        borderColor: "black",
+        borderWidth: 0.5,
+        backgroundColor: "rgba(0, 0, 255, 0.2)",
         tension: 0.2,
         pointRadius: 5,
         pointHoverRadius: 8,
-      }
+      },
     ],
   };
 
@@ -74,20 +88,19 @@ function Chart() {
         if (income > 0) {
           tooltipLines.push(`Income: €${income}`);
         }
-  
+
         if (expense > 0) {
           tooltipLines.push(`Expense: €${expense}`);
-        }  
+        }
         return tooltipLines;
       },
     },
-    
   };
-  
+
   const options = {
     scales: {
       y: {
-        suggestedMin: 0, 
+        suggestedMin: 0,
       },
     },
     plugins: {
@@ -113,8 +126,7 @@ const ChartStyled = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  display: flex;   
-
+  display: flex;
 `;
 
 export default Chart;

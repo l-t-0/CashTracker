@@ -1,15 +1,14 @@
-import { useGlobalContext } from '../../context/globalContext';
-import styled from 'styled-components';
-import React from 'react';
-import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJs } from 'chart.js';
+import { useGlobalContext } from "../../context/globalContext";
+import styled from "styled-components";
+import React from "react";
+import { Pie } from "react-chartjs-2";
+import { Chart as ChartJs } from "chart.js";
 
 ChartJs.register();
 
 function ExpensePieChart() {
   const { expense } = useGlobalContext();
 
-  // Calculate the total expenses for each category
   const categories = {};
   expense.forEach((e) => {
     if (categories[e.category]) {
@@ -19,23 +18,21 @@ function ExpensePieChart() {
     }
   });
 
-  
   const pastelColours = [
-    '#FFD3B5', // Light peach
-    '#FFECB5', // Light yellow
-    '#C6E2E9', // Light blue
-    '#E1D5E7', // Light lavender
-    '#D1F2EB', // Light mint
-    '#F9CB9C', // Light coral
-    '#C9C6E1', // Light lilac
-    '#F0D0C0', // Light blush
-    '#F6CFCA', // Light rose
-    '#E3F0D4', // Light green
-    '#FDE2E2', // Light pink
-    '#E2F0CB', // Light lime
-    '#B5EAD7', // Light aqua
-];
-
+    "#FFD3B5",
+    "#FFECB5",
+    "#C6E2E9",
+    "#E1D5E7",
+    "#D1F2EB",
+    "#F9CB9C",
+    "#C9C6E1",
+    "#F0D0C0",
+    "#F6CFCA",
+    "#E3F0D4",
+    "#FDE2E2",
+    "#E2F0CB",
+    "#B5EAD7",
+  ];
 
   const data = {
     labels: Object.keys(categories),

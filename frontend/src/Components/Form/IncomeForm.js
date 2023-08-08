@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from "../../context/globalContext";
-import Button from "../Button/Button";
 import { plus } from "../../utils/Icons";
+import Button from "../Button/Button";
 
-function ExpenseForm() {
-  const { addExpense, error, setError, expenseCategories } = useGlobalContext();
+function Form() {
+  const { addIncome, incomeCategories, setError, error } =
+    useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
-    date: "",
     category: "",
+    date: "",
   });
 
   const { title, amount, date, category } = inputState;
-
   const handleInput = (name) => (e) => {
     setInputState({ ...inputState, [name]: e.target.value });
     setError("");
@@ -24,33 +24,33 @@ function ExpenseForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addExpense(inputState);
+    addIncome(inputState);
     setInputState({
       title: "",
       amount: "",
-      date: "",
       category: "",
+      date: "",
     });
   };
 
   return (
-    <ExpenseFormStyled onSubmit={handleSubmit}>
+    <FormStyled onSubmit={handleSubmit}>
       {error && <p className="error">{error}</p>}
       <div className="input-control">
         <input
           type="text"
           value={title}
-          name={"title"}
-          placeholder="Expense Title"
+          name={title}
+          placeholder="Income Title"
           onChange={handleInput("title")}
         />
       </div>
       <div className="input-control">
         <input
-          value={amount}
           type="text"
-          name={"amount"}
-          placeholder={"Expense Amount"}
+          value={amount}
+          name={amount}
+          placeholder="Income Amount"
           onChange={handleInput("amount")}
         />
       </div>
@@ -61,6 +61,7 @@ function ExpenseForm() {
             placeholderText="Enter A Date"
             selected={date}
             dateFormat="dd/MM/yyyy"
+            autoComplete="off"
             onChange={(date) => {
               setInputState({ ...inputState, date: date });
             }}
@@ -77,7 +78,7 @@ function ExpenseForm() {
             <option value="" disabled>
               Select Option
             </option>
-            {expenseCategories.map((cat, index) => (
+            {incomeCategories.map((cat, index) => (
               <option key={index} value={cat.name}>
                 {cat.name}
               </option>
@@ -87,7 +88,7 @@ function ExpenseForm() {
       </div>
       <div className="submit-btn">
         <Button
-          name={"Add Expense"}
+          name={"Add Income"}
           icon={plus}
           bPad={".8rem 1.6rem"}
           bRad={"30px"}
@@ -95,11 +96,11 @@ function ExpenseForm() {
           color={"#fff"}
         />
       </div>
-    </ExpenseFormStyled>
+    </FormStyled>
   );
 }
 
-const ExpenseFormStyled = styled.form`
+const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -159,4 +160,4 @@ const ExpenseFormStyled = styled.form`
     }
   }
 `;
-export default ExpenseForm;
+export default Form;
