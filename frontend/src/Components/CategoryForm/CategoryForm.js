@@ -64,7 +64,7 @@ function CategoryForm() {
           icon={plus}
           bPad={".8rem 1.6rem"}
           bRad={"30px"}
-          bg={"var(--color-palepink"}
+          bg={"var(--color-accent"}
           color={"#fff"}
         />
       </div>
@@ -74,6 +74,7 @@ function CategoryForm() {
 }
 
 const FormStyled = styled.form`
+height: 200px;
   display: flex;
   flex-direction: column;
   gap: 2rem;

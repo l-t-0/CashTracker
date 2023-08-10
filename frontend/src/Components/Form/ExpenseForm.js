@@ -77,11 +77,13 @@ function ExpenseForm() {
             <option value="" disabled>
               Select Option
             </option>
-            {expenseCategories.map((cat, index) => (
-              <option key={index} value={cat.name}>
-                {cat.name}
-              </option>
-            ))}
+            {[...expenseCategories]
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((cat, index) => (
+                <option key={index} value={cat.name}>
+                  {cat.name}
+                </option>
+              ))}
           </select>
         </div>
       </div>
@@ -91,7 +93,7 @@ function ExpenseForm() {
           icon={plus}
           bPad={".8rem 1.6rem"}
           bRad={"30px"}
-          bg={"var(--color-palepink"}
+          bg={"var(--color-accent"}
           color={"#fff"}
         />
       </div>

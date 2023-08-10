@@ -58,13 +58,8 @@ export const GlobalProvider = ({ children }) => {
     try {
       const response = await axios.get(`${BASE_URL}get-categories`);
 
-      console.log("Raw response data:", response.data);
-
       const incomeCats = response.data.filter((cat) => cat.type === "income");
       const expenseCats = response.data.filter((cat) => cat.type === "expense");
-
-      console.log("Income categories:", incomeCats);
-      console.log("Expense categories:", expenseCats);
 
       setIncomeCategories(incomeCats);
       setExpenseCategories(expenseCats);
@@ -76,8 +71,6 @@ export const GlobalProvider = ({ children }) => {
         (category) => !defaultExpenseCategories.includes(category.name)
       );
 
-      console.log("Custom income categories:", customIncomeCats);
-      console.log("Custom expense categories:", customExpenseCats);
 
       setCustomIncomeCategories(customIncomeCats);
       setCustomExpenseCategories(customExpenseCats);

@@ -7,8 +7,6 @@ const app = express();
 
 require("dotenv").config();
 
-//password = 2WKxQ8ozQqdl4pgt
-//middlewares
 app.use(express.json());
 app.use(cors());
 

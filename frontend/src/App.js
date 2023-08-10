@@ -89,9 +89,12 @@ const HeaderContainer = styled.div`
   align-items: center;
 
   h1 {
+    color: rgba(24, 24, 78, .6);
     font-size: 5.5rem;
     font-weight: bold;
     letter-spacing: 0.01em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
   }
 `;
 

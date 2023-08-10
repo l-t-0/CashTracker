@@ -106,6 +106,7 @@ const DashboardStyled = styled.div`
       }
 
       .balance {
+        font-weight: 500;
         background: #fcf6f9;
         border: 2px solid #ffffff;
         box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
@@ -117,8 +118,8 @@ const DashboardStyled = styled.div`
         align-items: center;
         p {
           color: var(--color-green);
-          opacity: 0.6;
-          font-size: 4.5rem;
+          opacity: 1;
+          font-size: 4.75rem;
         }
       }
     }

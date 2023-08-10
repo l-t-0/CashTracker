@@ -12,9 +12,9 @@ export const GlobalStyle = createGlobalStyle`
         --primary-color: #222260;
         --primary-color2: 'color: rgba(34, 34, 96, .6)';
         --primary-color3: 'color: rgba(34, 34, 96, .4)';
-        --color-green: #8BC34A;
-        --color-babyblue: #B2E2FF;
-        --color-palepink: #F8B3C0;
+        --color-green: #42AD00;
+        --color-babyblue: #8ac1ff;
+        --color-palepink: #f293a4;
         --color-gray: #aaa;
         --color-accent: #F56692;
         --color-delete: #FF0000;

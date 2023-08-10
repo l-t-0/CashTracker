@@ -7,8 +7,7 @@ import { plus } from "../../utils/Icons";
 import Button from "../Button/Button";
 
 function Form() {
-  const { addIncome, incomeCategories, setError, error } =
-    useGlobalContext();
+  const { addIncome, incomeCategories, setError, error } = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
@@ -78,11 +77,13 @@ function Form() {
             <option value="" disabled>
               Select Option
             </option>
-            {incomeCategories.map((cat, index) => (
-              <option key={index} value={cat.name}>
-                {cat.name}
-              </option>
-            ))}
+            {[...incomeCategories]
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((cat, index) => (
+                <option key={index} value={cat.name}>
+                  {cat.name}
+                </option>
+              ))}
           </select>
         </div>
       </div>
@@ -92,7 +93,7 @@ function Form() {
           icon={plus}
           bPad={".8rem 1.6rem"}
           bRad={"30px"}
-          bg={"var(--color-palepink"}
+          bg={"var(--color-accent"}
           color={"#fff"}
         />
       </div>

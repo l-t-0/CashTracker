@@ -18,20 +18,20 @@ function IncomePieChart() {
     }
   });
 
-  const pastelColours = [
-    "#FFD3B5",
-    "#FFECB5",
-    "#C6E2E9",
-    "#E1D5E7",
-    "#D1F2EB",
-    "#F9CB9C",
-    "#C9C6E1",
-    "#F0D0C0",
-    "#F6CFCA",
-    "#E3F0D4",
-    "#FDE2E2",
-    "#E2F0CB",
-    "#B5EAD7",
+  const chartColours = [
+    "#FF8A65",
+    "#FFC107",
+    "#03A9F4",
+    "#AB47BC",
+    "#1DE9B6",
+    "#FF7043",
+    "#5C6BC0",
+    "#FFB74D",
+    "#FF6B6B",
+    "#66BB6A",
+    "#FF5252",
+    "#9CCC65",
+    "#26A69A"    
   ];
 
   const data = {
@@ -39,7 +39,7 @@ function IncomePieChart() {
     datasets: [
       {
         data: Object.values(categories),
-        backgroundColor: pastelColours,
+        backgroundColor: chartColours,
       },
     ],
   };

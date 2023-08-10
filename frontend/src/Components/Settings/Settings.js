@@ -66,6 +66,7 @@ const SettingsStyled = styled.div`
 `;
 
 const FormWrapper = styled.div`
+height: 250px;
   width: 33%;
   background: #fcf6f9;
   border: 2px solid #ffffff;
