@@ -99,7 +99,7 @@ height: 200px;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     color: rgba(34, 34, 96, 0.9);
     &::placeholder {
-      color: rgba(34, 34, 96, 0.4);
+      color: rgba(34, 34, 96, 0.6);
     }
   }
   .input-control {
@@ -111,7 +111,7 @@ height: 200px;
     display: flex;
     justify-content: flex-end;
     select {
-      color: rgba(34, 34, 96, 0.4);
+      color: rgba(34, 34, 96, 0.6);
       &:focus,
       &:active {
         color: rgba(34, 34, 96, 1);

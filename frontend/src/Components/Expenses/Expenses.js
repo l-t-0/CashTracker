@@ -136,7 +136,7 @@ const IncomeStyled = styled.div`
     display: flex;
     justify-content: flex-end;
     select {
-      color: rgba(34, 34, 96, 0.4);
+      color: rgba(34, 34, 96, .6);
       &:focus,
       &:active {
         color: rgba(34, 34, 96, 1);
@@ -174,7 +174,7 @@ const IncomeStyled = styled.div`
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     color: rgba(34, 34, 96, 0.9);
     &::placeholder {
-      color: rgba(34, 34, 96, 0.4);
+      color: rgba(34, 34, 96, 0.6);
     }
   }
 `;
